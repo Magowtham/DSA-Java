@@ -6,7 +6,7 @@ public class LinearsearchM{
       int a[][]={
         {1,2,3},
         {2,1,4},
-        {3,34,54,3}
+        {3,34,54,3,3}
       };
       int key=54;
       if(searchl(a,key)==true)
