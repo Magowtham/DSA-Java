@@ -1,4 +1,4 @@
-public class even_odd_digits{
+public class Evenodddigitcount{
     public static void main(String [] args)
     {
     int num[]={10,23,2345,45,3,56,47};
