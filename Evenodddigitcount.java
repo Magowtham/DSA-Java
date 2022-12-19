@@ -1,7 +1,7 @@
 public class Evenodddigitcount{
     public static void main(String [] args)
     {
-    int num[]={10,23,2345,45,3,56,47};
+    int num[]={10,-2360,345};
     int total[]=digitcount(num);
     System.out.println("The even digit count is :"+total[0]);
     System.out.println("The odd digit count is :"+total[1]);
