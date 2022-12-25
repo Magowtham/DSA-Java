@@ -8,8 +8,7 @@ public class BinarySearch{
             System.out.println("The target was not found");
         else
         System.out.println("The target was found in the position :"+(pos+1));
-        
-      
+
     }
     static int Binary(int arr[],int target)
     {
