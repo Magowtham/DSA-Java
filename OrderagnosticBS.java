@@ -1,7 +1,7 @@
 public class OrderagnosticBS {
     public static void main(String[] args) {
-       int arr[]={12,56,67,89,90,91,92,95,100,300};
-       int target=12;
+       int arr[]={89,56,43,23,23,21,22,15,10,8,2};
+       int target=89;
        int pos=search(arr,target);
        if(pos==-1)
        System.out.println("The item was not found");
@@ -15,8 +15,8 @@ public class OrderagnosticBS {
         int high=arr.length-1;
         while(low<=high)
         {
-            int mid=low+(high-low)/2;
-            if(arr[low]<arr[high])
+            int mid=low+(high-low)/2;//Finding the middle element
+            if(arr[low]<arr[high])//checking the condition wheather array is asscending or not;
             {
                 if(arr[mid]==target)
                 {
@@ -30,7 +30,7 @@ public class OrderagnosticBS {
                    low=mid+1;
                 }
             }
-            else{
+            else{//else statement is will be executed if the array is in descending order
                 if(arr[mid]==target)
                 {
                     return mid;
@@ -44,6 +44,6 @@ public class OrderagnosticBS {
                 }
             }
         }
-        return -1;
+        return -1;//returning -1 when the target was not found
     }
 }
