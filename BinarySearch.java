@@ -2,7 +2,7 @@ public class BinarySearch{
     public static void main(String[] args)
     {
         int arr[]={12,45,56,78,67,89};
-        int target=56;
+        int target=89;
         int pos=Binary(arr,target);
         if(pos==-1)
             System.out.println("The target was not found");
