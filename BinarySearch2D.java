@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Binarysearch2D {
+public class BinarySearch2D {
     public static void main(String[] args) {
         final long startTime = System.nanoTime();
         int arr[][]={{12,13,14,15},{24,25,26,30},{32,33,36,38},{42,43,44,45}};

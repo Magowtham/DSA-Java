@@ -1,82 +1,90 @@
 import java.util.Arrays;
 
-public class SortedMatrix {
-    public static void main(String[] args) {
-        int a[][]={{10,20,30,40},{11,28,36,50},{13,30,39,52},{19,37,42,61}};
-        int target=28;
-        int pos[]=search(a,target);
-        System.out.println(Arrays.toString(pos));
-
-
+public class SortedMatrix
+{
+    public static void main(String []args)
+    {  
+        int arr[][]={{10,20,30,40},{50,60,80,82},{90,100,102},{500,521,600}};
+        int target=82;
+        System.out.println(Arrays.toString(search(arr, target)));
     }
-    static int [] binarysearch(int [][] matrix,int row,int cStart,int cEnd,int target)
+    static int[] binarySearch(int [][]matrix,int row,int cstart,int cend,int target)
     {
-        while(cStart<=cEnd)
+      while(cstart<=cend)
+      {
+        int mid=cstart+(cend-cstart)/2;
+        if(matrix[row][mid]==target)
         {
-            int mid=cStart+(cEnd-cStart)/2;
-            if(matrix[row][mid]==target)
+            return new int []{row,mid};
+        }
+        if(matrix[row][mid]<target)
+        {
+            cstart=mid+1;
+        }
+        else{
+            cend=mid-1;
+        }
+      }
+      return  new int[]{-1,-1};
+    }
+    static int [] search(int [][]matrix,int target)
+    {
+        int rows=matrix.length;
+        int cols=matrix[0].length;// be cautious matrix may be empty 
+        if(rows==1)
+        {
+            return binarySearch(matrix,0,0,cols-1,target);
+        }
+        int rstart=0;
+        int rend=rows-1;
+        int cmid=cols/2;
+        //run the loop till 2 rows are remaining
+        while(rstart<(rend-1))//while this is true it will have morethan one rows
+        {
+            int mid=rstart+(rend-rstart)/2;
+            if(matrix[mid][cmid]==target)
             {
-                return new int[]{row,mid};
-            }
-            if(matrix[row][mid]<target)
+                return new int[]{mid,cmid};
+            } 
+            if(matrix[mid][cmid]<target)
             {
-                cStart=mid+1;
+                rstart=mid;
             }
             else{
-                cEnd=mid-1;
+                rend=mid;
             }
         }
-        return new int []{-1,-1};
-    }
-    static int[] search(int [][]arr,int target)
-    {
-        int row=arr.length;
-        int col=arr[0].length;
-        if(row==1)
+        System.out.println(rstart+" "+rend);
+        //now we have two rows
+        //check whaether the the target is in the  col of 2 rows
+        if(matrix[rstart][cmid]==target)
         {
-            return binarysearch(arr,0,0,col-1,target);
+            return new int []{rstart,cmid};
         }
-        int rStart=0;
-        int rEnd=row-1;
-        int cMid=col/2;
-        while(rStart<(rEnd-1))
+        if(matrix[rstart+1][cmid]==target)
         {
-            int mid=rStart+(rEnd-rStart)/2;
-            if(arr[mid][cMid]==target)
-            {
-                return new int[]{mid,cMid};
-            }
-            if(arr[mid][cMid]<target)
-            {
-                rStart=mid;
-            }
-            else{
-                rEnd=mid;
-            }
+            return new int []{rstart+1,cmid};
         }
-        if(arr[rStart][cMid]==target)
+        //search in first half 
+        if(target<=matrix[rstart][cmid-1])
         {
-            return new int[]{rStart,cMid};
+          return binarySearch(matrix,rstart,0,cmid-1,target);
         }
-        if(arr[rStart+1][cMid]==target)
-        {
-            return new int []{rStart+1,cMid};
-        }
-        if(target>=arr[rStart][cMid-1])
-        {
-            return binarysearch(arr,rStart,0,cMid-1,target);
-        }
-        if(target>=arr[rStart][cMid+1])
-        {
-            return binarysearch(arr,rStart,0,cMid+1,target);
-        }
-        if(target>=arr[rStart+1][cMid-1])
-        {
-            return binarysearch(arr,rStart+1,0,cMid-1,target);
-        }
+         //search in second half 
+         if(target>=matrix[rstart][cmid+1])
+         {
+            return binarySearch(matrix,rstart,cmid+1,cols-1,target); 
+         }
+         //search in third half 
+         if(target<=matrix[rstart+1][cmid-1])
+         {
+            return binarySearch(matrix,rstart+1,0,cmid-1,target);
+         }
+         //search in fourth half 
         else
-        {
-            return binarysearch(arr,rStart+1,0,cMid+1,target);
-        }
-    }
+         {
+            return binarySearch(matrix,rstart,cmid+1,cols-1,target);
+         }
+
+}
 }

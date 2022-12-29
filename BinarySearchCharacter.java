@@ -1,4 +1,4 @@
-public class CharacterBinary {
+public class BinarySearchCharacter{
   public static void main(String[] args) {
 char c[]={'a','b','c','d','e','f','g','h','i'};
 char target='i';

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LinearsearchM{
+public class LinearSearchM{
     public static void main(String[] args) 
     {
       final long startTime = System.nanoTime();
