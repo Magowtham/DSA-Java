@@ -1,7 +1,7 @@
 public class Ceiling {
    public static void main(String[] args) {
     int arr[]={2,3,5,9,14,16};
-    int target=16;
+    int target=1;
     System.out.println(bigelementsearch(arr, target));
    
    } 
@@ -17,7 +17,7 @@ public class Ceiling {
         {
         return arr[mid];
         }
-        else if(arr[mid]>big)
+        else if(arr[mid]>target)
         {
           big=arr[mid];
           end=mid-1;
