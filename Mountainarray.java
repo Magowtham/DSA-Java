@@ -1,4 +1,4 @@
-public class PeakelementofArray{
+public class Mountainarray{
     public static void main(String [] args)
     {
         int arr[]={12,23,45,67,89,123,168,23,12,10,5,6};
