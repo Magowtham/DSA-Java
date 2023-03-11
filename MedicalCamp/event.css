@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Sacramento&display=swap");
+
+body {
+  background: #f6f6f6;
+}
+/* navbar css */
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+  z-index: 99;
+  background-color: #20c997;
+}
+
+.nav-left {
+  height: 90px;
+  width: 77px;
+}
+.nav-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.nav-center {
+  /* border: 2px solid yellow; */
+  width: 50%;
+}
+.nav-center ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-center li {
+  padding: 7px 10px;
+  border-radius: 5px;
+}
+.nav-center li:hover {
+  transition: 1s;
+  background-color: cyan;
+  color: black;
+}
+.nav-center ul li a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  user-select: none;
+  color: black;
+}
+.nav-right {
+  /* border: 2px solid green; */
+}
+.side-bar {
+  position: fixed;
+  right: -300%;
+  top: 0;
+  background-color: red;
+  height: 100vh;
+  width: 250px;
+  max-width: 550px;
+  z-index: 99;
+  transition: 1s ease;
+}
+.side-bar .sidebar-elements {
+  position: relative;
+  top: 15%;
+  height: 100%;
+}
+.side-bar .sidebar-elements ul {
+  display: block;
+  margin: auto;
+  padding: 0;
+}
+.side-bar .sidebar-elements ul li {
+  list-style: none;
+  text-align: center;
+  margin: 20px 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.side-bar .sidebar-elements ul li:hover {
+  transition: 1s;
+  background-color: rgba(179, 179, 179, 0.728);
+}
+.side-bar .sidebar-elements ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-family: "Source Sans Pro", sans-serif;
+  color: white;
+}
+.menu-bar {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 55px;
+  border: 0;
+  right: 20%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.menu-bar .bar1,
+.bar2,
+.bar3 {
+  width: 100%;
+  margin: 3px;
+  border: 3px solid red;
+  border-radius: 30px;
+}
+/* JS Controlling CSS */
+.side-bar-visible {
+  right: 0;
+}
+.bar1-close {
+  transition: transform 0.6s ease-in-out;
+  transform: translateY(11px) rotate(-45deg);
+}
+.bar3-close {
+  transition: transform 0.6s ease-in-out;
+  transform: translateY(-12px) rotate(45deg);
+}
+.bar2-close {
+  opacity: 0;
+}
+@media screen and (max-width: 900px) {
+  nav {
+    justify-content: space-between;
+  }
+  .search-box {
+    display: none;
+  }
+  .menu-bar {
+    display: flex;
+  }
+  .nav-left {
+    width: 50%;
+    left: 5%;
+    position: relative;
+  }
+  .nav-center {
+    display: none;
+  }
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+@media screen and (max-width: 1260px) {
+  .nav-center ul li a {
+    font-size: 1.1rem;
+  }
+  .nav-left {
+    height: 70px;
+    width: 60px;
+    padding: 1px;
+  }
+  .nav-center {
+    width: 60%;
+  }
+  .nav-right {
+    width: 20%;
+  }
+  .search-input {
+    padding: 8px;
+  }
+}
+
+/* tab section css */
+.wrapper {
+  max-width: 90vw;
+  min-width: 275px;
+  margin: 3vh auto;
+}
+.tabs {
+  display: flex;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  background-color: #f6f6f6;
+  width: 150px; /* adjust as needed */
+  text-align: center;
+}
+
+.tab.active {
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  background-color: #fff;
+}
+
+.tab:hover {
+  background: #fff;
+}
+
+.tab.active:first-child {
+  border-left: 1px solid #ccc;
+}
+.tab.active:last-child {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.active {
+  display: block;
+}
+
+.tab-content {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.tab-content-item {
+  border: 1px solid #ccc;
+  display: none;
+  max-width: 100%;
+  height: 100%;
+  margin-top: -1px;
+  padding-inline: 20px;
+}
+
+.tab-content-item.active {
+  display: block;
+}
+/*Tab CSS Ends above*/
+
+/*Profile Waqas Bajwa*/
+.waqas-bajwa-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.waqas-bajwa-profile .waqas {
+  font-family: "Sacramento", cursive;
+  font-size: 1.35rem;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.5s;
+  display: inline-block;
+  color: #003399;
+}
+.waqas-bajwa-profile .waqas span {
+  color: #f26d21;
+  font-weight: 700;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: -1px;
+  transition: all 0.2s;
+}
+.waqas-bajwa-profile .fa-brands {
+  font-size: 1.35rem;
+  transition: all 0.2s;
+}
+.waqas-bajwa-profile .fa-twitter {
+  color: #1da1f2;
+}
+.waqas-bajwa-profile .fa-linkedin-in {
+  color: #0a66c2;
+}
+.waqas-bajwa-profile .fa-instagram {
+  color: #c32aa3;
+}
+.waqas-bajwa-profile .icon *:hover {
+  color: #333;
+  transform: translateY(-2px);
+}
+/* cards css */
+.card {
+  width: 20%;
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: relative;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 10px;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+.card:hover {
+  box-shadow: 0 16px 36px 0 rgba(0, 0, 0, 0.7);
+  transform: translate(0, -5px);
+}
+.container {
+  padding: 10px 20px;
+  text-align: left;
+  color: #fff;
+}
+.category {
+  text-decoration: none;
+  color: rgb(250, 178, 58);
+  font-weight: bold;
+  font-size: 0.85em;
+}
+.category:hover {
+  text-decoration: underline;
+}
+h2 {
+  margin: 0;
+  margin-top: 2px;
+}
+.author {
+  text-decoration: none;
+  color: rgb(90, 183, 243);
+}
+p {
+  margin-top: 7px;
+}
+.author:hover {
+  text-decoration: underline;
+}
+@media only screen and (max-width: 1024px) {
+  .card {
+    width: 40%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 550px) {
+  .card {
+    width: 98%;
+    margin: 1%;
+  }
+}
